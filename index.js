@@ -10,7 +10,7 @@ the number of degrees C
 
 function convertToCelsius(fahren) {
   const fahrenNum = parseInt(fahren);
-  const celsius = ((fahrenNum - 32) * 0.55);
+  const celsius = ((fahrenNum - 32) * 5/9);
 
   return celsius;
 }
@@ -31,13 +31,13 @@ function convertToCelsius(fahren) {
  * @param {number} celc
  */
 function createMessage(fahren, celc) {
-  if (fahren < 32 || celc < 32 ){
+  if (fahren < 32 || celc < 0 ){
     console.log("very cold");
-  } else if (fahren < 64 || celc < 64){
+  } else if (fahren < 64 || celc < 18){
     console.log("cold");
-  } else if (fahren < 86 || celc < 86){
+  } else if (fahren < 86 || celc < 30){
     console.log("warm");
-  } else if (fahren < 100 || celc < 100){
+  } else if (fahren < 100 || celc < 37){
     console.log("hot");
   }
 }
@@ -67,3 +67,9 @@ if (!fahren || !celc) {
   output = createMessage(fahren, celc);
   console.log(output);
 }
+/**
+Define the rand() function to take a limit and return a random number between 0 and that number.
+ */
+
+let randomNumber = rand(65); 
+console.log(randomNumber);
