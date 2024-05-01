@@ -2,11 +2,17 @@
 
 /**
  * Takes a F number and returns the number to C
- * @param {string} fahren temperature in degrees F
- * @returns {number} the number of degrees C
+@param {string} fahren 
+temperature in degrees F
+@returns {number} 
+the number of degrees C
  */
+
 function convertToCelsius(fahren) {
-  return yard * 33
+  const fahrenNum = parseInt(fahren);
+  const celsius = ((fahrenNum - 32) * 0.55);
+
+  return celsius;
 }
 
 /**
@@ -24,17 +30,19 @@ function convertToCelsius(fahren) {
  * @param {number} fahren
  * @param {number} celc
  */
-function createMessage(fahren, celc) {}
+function createMessage(fahren, celc) {
+  if (fahren < 32 || celc < 32 ){
+    console.log("very cold");
+  } else if (fahren < 64 || celc < 64){
+    console.log("cold");
+  } else if (fahren < 86 || celc < 86){
+    console.log("warm");
+  } else if (fahren < 100 || celc < 100){
+    console.log("hot");
+  }
+}
 
-/**
- * Takes a number and returns a random integer from 0 to the limit
- * @param {number} limit
- * @returns {number} a number between 0 and the int passed in
- */
-function rand(limit) {}
-
-// -------------------- DO NOT CHANGE THE CODE BELOW ---------------------- //
-
+/**/
 let fahren = prompt(
   "enter a number, we will convert that number from fahrenheit to celcius"
 );
@@ -42,19 +50,20 @@ let celc = convertToCelsius(fahren);
 let output = createMessage(fahren, celc);
 console.log(output);
 
-fahren = prompt(
-  "Lets try that again. enter a number, we will convert that number from fahrenheit to celcius"
-);
-celc = convertToCelsius(fahren);
-output = createMessage(fahren, celc);
-console.log(output);
-
-fahren = rand(110);
-celc = convertToCelsius(fahren);
-output = createMessage(fahren, celc);
-console.log(output);
-
-fahren = rand(110);
-celc = convertToCelsius(fahren);
-output = createMessage(fahren, celc);
-console.log(output);
+if (!fahren || !celc) {
+  fahren = prompt(
+    "Lets try that again. enter a number, we will convert that number from fahrenheit to celcius"
+  );
+  celc = convertToCelsius(fahren);
+  output = createMessage(fahren, celc);
+  console.log(output);
+  fahren = rand(110);
+  celc = convertToCelsius(fahren);
+  output = createMessage(fahren, celc);
+  console.log(output);
+} else {
+  fahren = rand(110);
+  celc = convertToCelsius(fahren);
+  output = createMessage(fahren, celc);
+  console.log(output);
+}
